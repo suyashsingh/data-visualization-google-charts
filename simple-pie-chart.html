@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Pie Chart</title>
+</head>
+<body>
+<script type="text/javascript">
+window.onload = function() {
+	// Load the Visualization Packages
+	google.charts.load('current', {'packages':['corechart']});
+	// Register a Call Back Function
+	google.charts.setOnLoadCallback(drawChart);
+	
+	function drawChart() {
+		// Create Data Table
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Mode of Transport');
+		data.addColumn('number', 'Number');
+		data.addRows([
+			['Bus', 40],
+			['Walk', 10],
+			['Cycle', 15],
+			['Car', 10],
+			['Taxi', 25]
+		]);
+		
+		// Create a Data Visualization Object
+		var chart = new google.visualization.PieChart(document.getElementById('chartDiv'));
+		// Draw Chart
+		chart.draw(data, {
+			'title': 'Mode of Transport to School'
+		});
+	}
+}
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="chartDiv" style="height: 400px; width: 100%;"></div><!-- Chart Div -->
+</body>
+</html>
